@@ -4,6 +4,9 @@ ruby '2.1.3'
 gem 'rails', '4.1.6'
 gem 'sqlite3'
 
+# Web API
+gem "instagram"
+
 # assets
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -16,6 +19,7 @@ gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem "dotenv-rails"
 end
 
 group :development do
