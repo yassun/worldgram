@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.1.3'
 
 gem 'rails', '4.1.6'
-gem 'sqlite3'
 
 # Web API
 gem "instagram"
@@ -18,6 +17,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem "dotenv-rails"
 end
@@ -38,5 +38,9 @@ group :test do
   gem 'shoulda'
   gem 'vcr'
   gem 'webmock'
+end
+
+group :production do
+  gem 'pg'
 end
 
