@@ -16,6 +16,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+# css
+gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'font-awesome-rails', '~> 4.0.3.0'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
