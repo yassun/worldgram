@@ -15,9 +15,6 @@ Bundler.require(*Rails.groups)
 
 module Worldgram
   class Application < Rails::Application
-    config.serve_static_assets = true
-    config.assets.compile = true
-    config.assets.digest = true
     config.time_zone = 'Tokyo' # タイムゾーンを Tokyo に変更
     config.i18n.default_locale = :ja # 言語を日本語に変更 
   end
