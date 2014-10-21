@@ -1,15 +1,15 @@
 require 'rails_helper'
 require "webmock/rspec"
 
-WebMock.allow_net_connect!
-
-EXAMPLE_SITE_URL = "https://api.instagram.com/v1/tags/Iceland/media/recent.json"
+WebMock.disable_net_connect!(:allow_localhost => true)
+INSTAGRAM_API_URL = /.*api\.instagram\.com.*/
 
 RSpec.describe 'ユーザーが写真一覧を閲覧する', :type => :request do
 
   context 'トップページに遷移したとき' do
 
     context 'かつ InstagramAPIからデータが取得できたとき' do
+
       before do
         body = [{
           :images => {
@@ -18,11 +18,10 @@ RSpec.describe 'ユーザーが写真一覧を閲覧する', :type => :request d
           :caption => { :text => "hogehoge" }
         }]
 
-        stub_request(:get, EXAMPLE_SITE_URL).to_return({
+        stub_request(:get, INSTAGRAM_API_URL).to_return({
           :body => {:data => body },
           :status => 200
         })
-
         visit root_path
       end
 
@@ -31,8 +30,8 @@ RSpec.describe 'ユーザーが写真一覧を閲覧する', :type => :request d
         expect(page).to have_selector("img[src$='http://example.jpg']")
         expect(page).to have_selector('div.caption', text: 'hogehoge')
       end
-
     end
+
   end
 
 end
