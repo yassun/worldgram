@@ -11,6 +11,7 @@ RSpec.describe 'ユーザーが写真一覧を閲覧する', :type => :request d
     context 'かつ InstagramAPIからデータが取得できたとき' do
 
       before do
+        FactoryGirl.create(:country_name)
         body = [{
           :images => {
             :low_resolution => { :url => 'http://example.jpg' }
@@ -29,6 +30,8 @@ RSpec.describe 'ユーザーが写真一覧を閲覧する', :type => :request d
         expect(page).to have_title('Worldgram')
         expect(page).to have_selector("img[src$='http://example.jpg']")
         expect(page).to have_selector('div.caption', text: 'hogehoge')
+        expect(page).to have_content("Japan")
+        expect(page).to have_link('wiki', :href => 'http://ja.wikipedia.org/wiki/日本')
       end
     end
 
