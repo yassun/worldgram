@@ -1,4 +1,6 @@
-<h1 class="text-center"><%= @country_name.en %></h1>
-<p class="text-center"><%= wiki_for @country_name.jp %></p>
-<%= render partial: 'media', collection: @medias %>
+<h1 class="text-center" id="country_name" ><%= @country_name.en %></h1>
+<p class="text-center" id="wiki" ><%= wiki_for @country_name.jp %></p>
+<div id="photos">
+  <%= render partial: 'media', collection: @medias %>
+</div>
 

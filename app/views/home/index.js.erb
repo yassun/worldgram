@@ -1,0 +1,3 @@
+$("#country_name").html("<%= @country_name.en %>")
+$("#wiki").html("<%= escape_javascript(wiki_for @country_name.jp) %>")
+$("#photos").hide().html("<%= escape_javascript(render partial: 'media', collection: @medias) %>").fadeIn("slow")

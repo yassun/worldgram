@@ -4,7 +4,7 @@
       <%= link_to "WorlGram", root_path, class: "navbar-brand" %>
       <ul class="nav navbar-nav pull-right">
         <li>
-          <%= link_to "Random", root_path%>
+        <%= link_to "Random", root_path, data: { remote: true, disable_with: 'loading...'} %>
         </li>
       </ul>
     </div>
